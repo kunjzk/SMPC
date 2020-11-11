@@ -2,7 +2,7 @@
 # naranker dulay, dept of computing, imperial college, october 2020
 
 # verbosity level useful for debugging (log.py)
-VERBOSE = 0   # 0=quiet, 1+=increasing verbosity
+VERBOSE = 1   # 0=quiet, 1+=increasing verbosity
 
 # set to True to use party no as seed, useful for debugging (mpc.py)
 REPEATABLE_RANDOM_NUMBERS = False
