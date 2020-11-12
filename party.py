@@ -12,16 +12,19 @@ def gen_coeffs(priv_value):
   log.debug("degree %d" % DEGREE)
   randnums = [modprime.randint() for _ in range(DEGREE)]
   coeffs= [priv_value]
-  coeffs.append(randnums)
+  coeffs += randnums
 
-  log.debug(coeffs)
+  # log.debug(coeffs)
   return coeffs
 
-def poly(coeffs, x):
+def poly_prime(coeffs, x):
+  ''' Retuns P(x) mod PRIME '''
   res = 0
-  for deg, co in coeffs:
-    res += co*(x**(deg+1))
-  return res
+  for deg, co in enumerate(coeffs, start=1):
+    # log.debug("deg: %d, co: %d" % (deg,co))
+    # print(co)
+    res += co*(x**(deg))
+  return modprime.mod(res)
 
 
 def bgw_protocol(party_no, priv_value, network):
@@ -34,7 +37,8 @@ def bgw_protocol(party_no, priv_value, network):
 
   # Send shares
   for no in PRIVATE_VALUES:
-    share = poly(coeffs, no)
+    share = poly_prime(coeffs, no)
     # TODO determine which gate to send to
     gate = 0
+    log.debug("Sending share %d for gate %d to dest_no %d" % (share, gate, no))
     network.send_share(share, gate, no)
