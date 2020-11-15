@@ -128,7 +128,7 @@ def bgw_protocol(party_no, priv_value, network):
         log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[cur_wire]))
       op1,op2 = gate_inputs[cur_wire]
       res = modprime.add(op1,op2)
-      log.debug("Performing %d + %d = %d" % (op1, op2, res))
+      log.debug("Performing (%d + %d) mod prime = %d" % (op1, op2, res))
       if input_no == 1:
         gate_inputs[out_wire] = [res]
       else:
@@ -139,8 +139,8 @@ def bgw_protocol(party_no, priv_value, network):
       if (len(gate_inputs[cur_wire]) != 2):
         log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[cur_wire]))
       op1,op2 = gate_inputs[cur_wire]
-      log.debug("Performing %d * %d" % (op1, op2))
-      res = op1 * op2
+      log.debug("Performing (%d & %d) mod prime = %d" % (op1, op2, res))
+      res = modprime.mul(op1,op2)
       # TODO need to do degree reduction
 
   final_wire = N_GATES+1
