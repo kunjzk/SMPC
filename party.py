@@ -2,7 +2,7 @@
 # Kunal Katarya KK3415
 
 
-from circuit import ALL_PARTIES, DEGREE, N_GATES, PRIVATE_VALUES, GATES
+from circuit import ALL_PARTIES, DEGREE, N_GATES, PRIME, PRIVATE_VALUES, GATES
 import log
 import circuit
 import modprime
@@ -39,7 +39,7 @@ def recombine(received_values, final=False):
     for j in range(1, upper_bound):
       if j != i:
         prod = prod * (j/(j-i))
-    recomb.append(prod)
+    recomb.append(int(prod))
   log.write("recomb vector = %s" % recomb)
 
   res = 0
@@ -47,7 +47,8 @@ def recombine(received_values, final=False):
   for i, vec in enumerate(recomb, start=0):
     res += vec*received_values[i]
 
-  if final: log.write("Final result -> Ours: %d, actual %d" % (modprime.mod(res), circuit.function(circuit.PRIVATE_VALUES)))
+  if final: log.write("Final result -> Ours: %d, actual %d" % (modprime.mod(res),\
+     circuit.function(circuit.PRIVATE_VALUES)))
 
   return modprime.mod(res)
 

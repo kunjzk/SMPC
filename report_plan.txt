@@ -22,8 +22,8 @@
   Table of added values
 
   Final
-  New polynomial
   Table of shares
+  Interpolated value vs function value
   
   
 
