@@ -1,0 +1,33 @@
+1. Walk through how our functions work
+  Function decription table
+  Flowchart of the functions
+  Circuit Diagrams
+
+2. Evaluation on Circuits
+  Evluation on given default parameters for circuit 1 & 2
+  Show intermediate values + polynomials that we use to generate shares
+
+  Draw Diagrams
+  Table - for each input gate, what polynomial is generated
+  Table of input gate shares, like book
+
+  Mul
+
+  Table of multiplied values
+  Table new polynomials
+  Table of shares of multiplied values
+  Table of interpolated values
+
+  Add
+  Table of added values
+
+  Final
+  New polynomial
+  Table of shares
+  
+  
+
+Idea for script/TB
+  Change degree and prime, randomise secret values
+  Degree = 1, Prime = 101 -> BGW: 50 Actual: 50
+  Degree = 2, Prime = 101 -> BGW: 20 Actual: 20
