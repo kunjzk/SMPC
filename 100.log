@@ -1,0 +1,674 @@
+python3 mpc.py | sort
+01-000: Called bgw protocol!
+01-000: Polynomial Coeffs: [20, 18, 58]
+01-000: Private value: 20, party no 1
+01-000: degree 2
+01-001: evals = [20, 18, 58]
+01-002: poly res = 96 -> 96
+01-003: Sending share 96 for wire 1 to party_no 1
+01-004: evals = [20, 36, 232]
+01-005: poly res = 288 -> 86
+01-006: Sending share 86 for wire 1 to party_no 2
+01-007: evals = [20, 54, 522]
+01-008: poly res = 596 -> 91
+01-009: Sending share 91 for wire 1 to party_no 3
+01-010: evals = [20, 72, 928]
+01-011: poly res = 1020 -> 10
+01-012: Sending share 10 for wire 1 to party_no 4
+01-013: evals = [20, 90, 1450]
+01-014: poly res = 1560 -> 45
+01-015: Sending share 45 for wire 1 to party_no 5
+01-016: evals = [20, 108, 2088]
+01-017: poly res = 2216 -> 95
+01-018: Sending share 95 for wire 1 to party_no 6
+01-019: Sent shares [96, 86, 91, 10, 45, 95]
+01-020: [WIRE]: 1, 0
+01-021: [WIRE]: 2, 0
+01-022: [WIRE]: 3, 0
+01-023: [WIRE]: 4, 0
+01-024: [WIRE]: 5, 0
+01-025: [WIRE]: 6, 0
+01-026: [WIRE]: 7, 2
+01-027: Performing (96 * 15) mod prime = 26
+01-027: degree 2
+01-028: Degree reduction coeffs [26, 58, 98]
+01-029: evals = [26, 58, 98]
+01-030: poly res = 182 -> 81
+01-031: Sending share 81 for wire 7 to party_no 1
+01-032: evals = [26, 116, 392]
+01-033: poly res = 534 -> 29
+01-034: Sending share 29 for wire 7 to party_no 2
+01-035: evals = [26, 174, 882]
+01-036: poly res = 1082 -> 72
+01-037: Sending share 72 for wire 7 to party_no 3
+01-038: evals = [26, 232, 1568]
+01-039: poly res = 1826 -> 8
+01-040: Sending share 8 for wire 7 to party_no 4
+01-041: evals = [26, 290, 2450]
+01-042: poly res = 2766 -> 39
+01-043: Sending share 39 for wire 7 to party_no 5
+01-044: evals = [26, 348, 3528]
+01-045: poly res = 3902 -> 64
+01-046: Sending share 64 for wire 7 to party_no 6
+01-047: Degree reduction sent shares [81, 29, 72, 8, 39, 64]
+01-048: recomb vector = [5, -10, 10, -5, 1]
+01-049: Recombined output of gate 7: 47
+01-050: [WIRE]: 8, 2
+01-051: Performing (97 * 6) mod prime = 77
+01-051: degree 2
+01-052: Degree reduction coeffs [77, 22, 90]
+01-053: evals = [77, 22, 90]
+01-054: poly res = 189 -> 88
+01-055: Sending share 88 for wire 8 to party_no 1
+01-056: evals = [77, 44, 360]
+01-057: poly res = 481 -> 77
+01-058: Sending share 77 for wire 8 to party_no 2
+01-059: evals = [77, 66, 810]
+01-060: poly res = 953 -> 44
+01-061: Sending share 44 for wire 8 to party_no 3
+01-062: evals = [77, 88, 1440]
+01-063: poly res = 1605 -> 90
+01-064: Sending share 90 for wire 8 to party_no 4
+01-065: evals = [77, 110, 2250]
+01-066: poly res = 2437 -> 13
+01-067: Sending share 13 for wire 8 to party_no 5
+01-068: evals = [77, 132, 3240]
+01-069: poly res = 3449 -> 15
+01-070: Sending share 15 for wire 8 to party_no 6
+01-071: Degree reduction sent shares [88, 77, 44, 90, 13, 15]
+01-072: recomb vector = [5, -10, 10, -5, 1]
+01-073: Recombined output of gate 8: 56
+01-074: [WIRE]: 9, 2
+01-075: Performing (77 * 46) mod prime = 7
+01-075: degree 2
+01-076: Degree reduction coeffs [7, 50, 93]
+01-077: evals = [7, 50, 93]
+01-078: poly res = 150 -> 49
+01-079: Sending share 49 for wire 9 to party_no 1
+01-080: evals = [7, 100, 372]
+01-081: poly res = 479 -> 75
+01-082: Sending share 75 for wire 9 to party_no 2
+01-083: evals = [7, 150, 837]
+01-084: poly res = 994 -> 85
+01-085: Sending share 85 for wire 9 to party_no 3
+01-086: evals = [7, 200, 1488]
+01-087: poly res = 1695 -> 79
+01-088: Sending share 79 for wire 9 to party_no 4
+01-089: evals = [7, 250, 2325]
+01-090: poly res = 2582 -> 57
+01-091: Sending share 57 for wire 9 to party_no 5
+01-092: evals = [7, 300, 3348]
+01-093: poly res = 3655 -> 19
+01-094: Sending share 19 for wire 9 to party_no 6
+01-095: Degree reduction sent shares [49, 75, 85, 79, 57, 19]
+01-096: recomb vector = [5, -10, 10, -5, 1]
+01-097: Recombined output of gate 9: 12
+01-098: Performing (47 + 56) mod prime = 2
+01-098: [WIRE]: 10, 1
+01-099: Performing (12 + 2) mod prime = 14
+01-099: Sending final value 14 all parties
+01-099: [WIRE]: 11, 1
+01-100: Final shares [14, 78, 98, 74, 6, 96]
+01-101: recomb vector = [3, -3, 1]
+01-102: Final result -> Ours: 7, actual 7
+02-000: Called bgw protocol!
+02-000: Polynomial Coeffs: [40, 18, 58]
+02-000: Private value: 40, party no 2
+02-000: degree 2
+02-001: evals = [40, 18, 58]
+02-002: poly res = 116 -> 15
+02-003: Sending share 15 for wire 2 to party_no 1
+02-004: evals = [40, 36, 232]
+02-005: poly res = 308 -> 5
+02-006: Sending share 5 for wire 2 to party_no 2
+02-007: evals = [40, 54, 522]
+02-008: poly res = 616 -> 10
+02-009: Sending share 10 for wire 2 to party_no 3
+02-010: evals = [40, 72, 928]
+02-011: poly res = 1040 -> 30
+02-012: Sending share 30 for wire 2 to party_no 4
+02-013: evals = [40, 90, 1450]
+02-014: poly res = 1580 -> 65
+02-015: Sending share 65 for wire 2 to party_no 5
+02-016: evals = [40, 108, 2088]
+02-017: poly res = 2236 -> 14
+02-018: Sending share 14 for wire 2 to party_no 6
+02-019: Sent shares [15, 5, 10, 30, 65, 14]
+02-020: [WIRE]: 1, 0
+02-021: [WIRE]: 2, 0
+02-022: [WIRE]: 3, 0
+02-023: [WIRE]: 4, 0
+02-024: [WIRE]: 5, 0
+02-025: [WIRE]: 6, 0
+02-026: [WIRE]: 7, 2
+02-027: Performing (86 * 5) mod prime = 26
+02-027: degree 2
+02-028: Degree reduction coeffs [26, 58, 98]
+02-029: evals = [26, 58, 98]
+02-030: poly res = 182 -> 81
+02-031: Sending share 81 for wire 7 to party_no 1
+02-032: evals = [26, 116, 392]
+02-033: poly res = 534 -> 29
+02-034: Sending share 29 for wire 7 to party_no 2
+02-035: evals = [26, 174, 882]
+02-036: poly res = 1082 -> 72
+02-037: Sending share 72 for wire 7 to party_no 3
+02-038: evals = [26, 232, 1568]
+02-039: poly res = 1826 -> 8
+02-040: Sending share 8 for wire 7 to party_no 4
+02-041: evals = [26, 290, 2450]
+02-042: poly res = 2766 -> 39
+02-043: Sending share 39 for wire 7 to party_no 5
+02-044: evals = [26, 348, 3528]
+02-045: poly res = 3902 -> 64
+02-046: Sending share 64 for wire 7 to party_no 6
+02-047: Degree reduction sent shares [81, 29, 72, 8, 39, 64]
+02-048: recomb vector = [5, -10, 10, -5, 1]
+02-049: Recombined output of gate 7: 96
+02-050: [WIRE]: 8, 2
+02-051: Performing (87 * 97) mod prime = 56
+02-051: degree 2
+02-052: Degree reduction coeffs [56, 22, 90]
+02-053: evals = [56, 22, 90]
+02-054: poly res = 168 -> 67
+02-055: Sending share 67 for wire 8 to party_no 1
+02-056: evals = [56, 44, 360]
+02-057: poly res = 460 -> 56
+02-058: Sending share 56 for wire 8 to party_no 2
+02-059: evals = [56, 66, 810]
+02-060: poly res = 932 -> 23
+02-061: Sending share 23 for wire 8 to party_no 3
+02-062: evals = [56, 88, 1440]
+02-063: poly res = 1584 -> 69
+02-064: Sending share 69 for wire 8 to party_no 4
+02-065: evals = [56, 110, 2250]
+02-066: poly res = 2416 -> 93
+02-067: Sending share 93 for wire 8 to party_no 5
+02-068: evals = [56, 132, 3240]
+02-069: poly res = 3428 -> 95
+02-070: Sending share 95 for wire 8 to party_no 6
+02-071: Degree reduction sent shares [67, 56, 23, 69, 93, 95]
+02-072: recomb vector = [5, -10, 10, -5, 1]
+02-073: Recombined output of gate 8: 45
+02-074: [WIRE]: 9, 2
+02-075: Performing (67 * 36) mod prime = 89
+02-075: degree 2
+02-076: Degree reduction coeffs [89, 50, 93]
+02-077: evals = [89, 50, 93]
+02-078: poly res = 232 -> 30
+02-079: Sending share 30 for wire 9 to party_no 1
+02-080: evals = [89, 100, 372]
+02-081: poly res = 561 -> 56
+02-082: Sending share 56 for wire 9 to party_no 2
+02-083: evals = [89, 150, 837]
+02-084: poly res = 1076 -> 66
+02-085: Sending share 66 for wire 9 to party_no 3
+02-086: evals = [89, 200, 1488]
+02-087: poly res = 1777 -> 60
+02-088: Sending share 60 for wire 9 to party_no 4
+02-089: evals = [89, 250, 2325]
+02-090: poly res = 2664 -> 38
+02-091: Sending share 38 for wire 9 to party_no 5
+02-092: evals = [89, 300, 3348]
+02-093: poly res = 3737 -> 0
+02-094: Sending share 0 for wire 9 to party_no 6
+02-095: Degree reduction sent shares [30, 56, 66, 60, 38, 0]
+02-096: recomb vector = [5, -10, 10, -5, 1]
+02-097: Recombined output of gate 9: 38
+02-098: Performing (96 + 45) mod prime = 40
+02-098: [WIRE]: 10, 1
+02-099: Performing (38 + 40) mod prime = 78
+02-099: Sending final value 78 all parties
+02-099: [WIRE]: 11, 1
+02-100: Final shares [14, 78, 98, 74, 6, 96]
+02-101: recomb vector = [3, -3, 1]
+02-102: Final result -> Ours: 7, actual 7
+03-000: Called bgw protocol!
+03-000: Polynomial Coeffs: [21, 18, 58]
+03-000: Private value: 21, party no 3
+03-000: degree 2
+03-001: evals = [21, 18, 58]
+03-002: poly res = 97 -> 97
+03-003: Sending share 97 for wire 3 to party_no 1
+03-004: evals = [21, 36, 232]
+03-005: poly res = 289 -> 87
+03-006: Sending share 87 for wire 3 to party_no 2
+03-007: evals = [21, 54, 522]
+03-008: poly res = 597 -> 92
+03-009: Sending share 92 for wire 3 to party_no 3
+03-010: evals = [21, 72, 928]
+03-011: poly res = 1021 -> 11
+03-012: Sending share 11 for wire 3 to party_no 4
+03-013: evals = [21, 90, 1450]
+03-014: poly res = 1561 -> 46
+03-015: Sending share 46 for wire 3 to party_no 5
+03-016: evals = [21, 108, 2088]
+03-017: poly res = 2217 -> 96
+03-018: Sending share 96 for wire 3 to party_no 6
+03-019: Sent shares [97, 87, 92, 11, 46, 96]
+03-020: [WIRE]: 1, 0
+03-021: [WIRE]: 2, 0
+03-022: [WIRE]: 3, 0
+03-023: [WIRE]: 4, 0
+03-024: [WIRE]: 5, 0
+03-025: [WIRE]: 6, 0
+03-026: [WIRE]: 7, 2
+03-027: Performing (91 * 10) mod prime = 1
+03-027: degree 2
+03-028: Degree reduction coeffs [1, 58, 98]
+03-029: evals = [1, 58, 98]
+03-030: poly res = 157 -> 56
+03-031: Sending share 56 for wire 7 to party_no 1
+03-032: evals = [1, 116, 392]
+03-033: poly res = 509 -> 4
+03-034: Sending share 4 for wire 7 to party_no 2
+03-035: evals = [1, 174, 882]
+03-036: poly res = 1057 -> 47
+03-037: Sending share 47 for wire 7 to party_no 3
+03-038: evals = [1, 232, 1568]
+03-039: poly res = 1801 -> 84
+03-040: Sending share 84 for wire 7 to party_no 4
+03-041: evals = [1, 290, 2450]
+03-042: poly res = 2741 -> 14
+03-043: Sending share 14 for wire 7 to party_no 5
+03-044: evals = [1, 348, 3528]
+03-045: poly res = 3877 -> 39
+03-046: Sending share 39 for wire 7 to party_no 6
+03-047: Degree reduction sent shares [56, 4, 47, 84, 14, 39]
+03-048: recomb vector = [5, -10, 10, -5, 1]
+03-049: Recombined output of gate 7: 38
+03-050: [WIRE]: 8, 2
+03-051: Performing (92 * 1) mod prime = 92
+03-051: degree 2
+03-052: Degree reduction coeffs [92, 22, 90]
+03-053: evals = [92, 22, 90]
+03-054: poly res = 204 -> 2
+03-055: Sending share 2 for wire 8 to party_no 1
+03-056: evals = [92, 44, 360]
+03-057: poly res = 496 -> 92
+03-058: Sending share 92 for wire 8 to party_no 2
+03-059: evals = [92, 66, 810]
+03-060: poly res = 968 -> 59
+03-061: Sending share 59 for wire 8 to party_no 3
+03-062: evals = [92, 88, 1440]
+03-063: poly res = 1620 -> 4
+03-064: Sending share 4 for wire 8 to party_no 4
+03-065: evals = [92, 110, 2250]
+03-066: poly res = 2452 -> 28
+03-067: Sending share 28 for wire 8 to party_no 5
+03-068: evals = [92, 132, 3240]
+03-069: poly res = 3464 -> 30
+03-070: Sending share 30 for wire 8 to party_no 6
+03-071: Degree reduction sent shares [2, 92, 59, 4, 28, 30]
+03-072: recomb vector = [5, -10, 10, -5, 1]
+03-073: Recombined output of gate 8: 12
+03-074: [WIRE]: 9, 2
+03-075: Performing (72 * 41) mod prime = 23
+03-075: degree 2
+03-076: Degree reduction coeffs [23, 50, 93]
+03-077: evals = [23, 50, 93]
+03-078: poly res = 166 -> 65
+03-079: Sending share 65 for wire 9 to party_no 1
+03-080: evals = [23, 100, 372]
+03-081: poly res = 495 -> 91
+03-082: Sending share 91 for wire 9 to party_no 2
+03-083: evals = [23, 150, 837]
+03-084: poly res = 1010 -> 0
+03-085: Sending share 0 for wire 9 to party_no 3
+03-086: evals = [23, 200, 1488]
+03-087: poly res = 1711 -> 95
+03-088: Sending share 95 for wire 9 to party_no 4
+03-089: evals = [23, 250, 2325]
+03-090: poly res = 2598 -> 73
+03-091: Sending share 73 for wire 9 to party_no 5
+03-092: evals = [23, 300, 3348]
+03-093: poly res = 3671 -> 35
+03-094: Sending share 35 for wire 9 to party_no 6
+03-095: Degree reduction sent shares [65, 91, 0, 95, 73, 35]
+03-096: recomb vector = [5, -10, 10, -5, 1]
+03-097: Recombined output of gate 9: 48
+03-098: Performing (38 + 12) mod prime = 50
+03-098: [WIRE]: 10, 1
+03-099: Performing (48 + 50) mod prime = 98
+03-099: Sending final value 98 all parties
+03-099: [WIRE]: 11, 1
+03-100: Final shares [14, 78, 98, 74, 6, 96]
+03-101: recomb vector = [3, -3, 1]
+03-102: Final result -> Ours: 7, actual 7
+04-000: Called bgw protocol!
+04-000: Polynomial Coeffs: [31, 18, 58]
+04-000: Private value: 31, party no 4
+04-000: degree 2
+04-001: evals = [31, 18, 58]
+04-002: poly res = 107 -> 6
+04-003: Sending share 6 for wire 4 to party_no 1
+04-004: evals = [31, 36, 232]
+04-005: poly res = 299 -> 97
+04-006: Sending share 97 for wire 4 to party_no 2
+04-007: evals = [31, 54, 522]
+04-008: poly res = 607 -> 1
+04-009: Sending share 1 for wire 4 to party_no 3
+04-010: evals = [31, 72, 928]
+04-011: poly res = 1031 -> 21
+04-012: Sending share 21 for wire 4 to party_no 4
+04-013: evals = [31, 90, 1450]
+04-014: poly res = 1571 -> 56
+04-015: Sending share 56 for wire 4 to party_no 5
+04-016: evals = [31, 108, 2088]
+04-017: poly res = 2227 -> 5
+04-018: Sending share 5 for wire 4 to party_no 6
+04-019: Sent shares [6, 97, 1, 21, 56, 5]
+04-020: [WIRE]: 1, 0
+04-021: [WIRE]: 2, 0
+04-022: [WIRE]: 3, 0
+04-023: [WIRE]: 4, 0
+04-024: [WIRE]: 5, 0
+04-025: [WIRE]: 6, 0
+04-026: [WIRE]: 7, 2
+04-027: Performing (10 * 30) mod prime = 98
+04-027: degree 2
+04-028: Degree reduction coeffs [98, 58, 98]
+04-029: evals = [98, 58, 98]
+04-030: poly res = 254 -> 52
+04-031: Sending share 52 for wire 7 to party_no 1
+04-032: evals = [98, 116, 392]
+04-033: poly res = 606 -> 0
+04-034: Sending share 0 for wire 7 to party_no 2
+04-035: evals = [98, 174, 882]
+04-036: poly res = 1154 -> 43
+04-037: Sending share 43 for wire 7 to party_no 3
+04-038: evals = [98, 232, 1568]
+04-039: poly res = 1898 -> 80
+04-040: Sending share 80 for wire 7 to party_no 4
+04-041: evals = [98, 290, 2450]
+04-042: poly res = 2838 -> 10
+04-043: Sending share 10 for wire 7 to party_no 5
+04-044: evals = [98, 348, 3528]
+04-045: poly res = 3974 -> 35
+04-046: Sending share 35 for wire 7 to party_no 6
+04-047: Degree reduction sent shares [52, 0, 43, 80, 10, 35]
+04-048: recomb vector = [5, -10, 10, -5, 1]
+04-049: Recombined output of gate 7: 75
+04-050: [WIRE]: 8, 2
+04-051: Performing (11 * 21) mod prime = 29
+04-051: degree 2
+04-052: Degree reduction coeffs [29, 22, 90]
+04-053: evals = [29, 22, 90]
+04-054: poly res = 141 -> 40
+04-055: Sending share 40 for wire 8 to party_no 1
+04-056: evals = [29, 44, 360]
+04-057: poly res = 433 -> 29
+04-058: Sending share 29 for wire 8 to party_no 2
+04-059: evals = [29, 66, 810]
+04-060: poly res = 905 -> 97
+04-061: Sending share 97 for wire 8 to party_no 3
+04-062: evals = [29, 88, 1440]
+04-063: poly res = 1557 -> 42
+04-064: Sending share 42 for wire 8 to party_no 4
+04-065: evals = [29, 110, 2250]
+04-066: poly res = 2389 -> 66
+04-067: Sending share 66 for wire 8 to party_no 5
+04-068: evals = [29, 132, 3240]
+04-069: poly res = 3401 -> 68
+04-070: Sending share 68 for wire 8 to party_no 6
+04-071: Degree reduction sent shares [40, 29, 97, 42, 66, 68]
+04-072: recomb vector = [5, -10, 10, -5, 1]
+04-073: Recombined output of gate 8: 58
+04-074: [WIRE]: 9, 2
+04-075: Performing (92 * 61) mod prime = 57
+04-075: degree 2
+04-076: Degree reduction coeffs [57, 50, 93]
+04-077: evals = [57, 50, 93]
+04-078: poly res = 200 -> 99
+04-079: Sending share 99 for wire 9 to party_no 1
+04-080: evals = [57, 100, 372]
+04-081: poly res = 529 -> 24
+04-082: Sending share 24 for wire 9 to party_no 2
+04-083: evals = [57, 150, 837]
+04-084: poly res = 1044 -> 34
+04-085: Sending share 34 for wire 9 to party_no 3
+04-086: evals = [57, 200, 1488]
+04-087: poly res = 1745 -> 28
+04-088: Sending share 28 for wire 9 to party_no 4
+04-089: evals = [57, 250, 2325]
+04-090: poly res = 2632 -> 6
+04-091: Sending share 6 for wire 9 to party_no 5
+04-092: evals = [57, 300, 3348]
+04-093: poly res = 3705 -> 69
+04-094: Sending share 69 for wire 9 to party_no 6
+04-095: Degree reduction sent shares [99, 24, 34, 28, 6, 69]
+04-096: recomb vector = [5, -10, 10, -5, 1]
+04-097: Recombined output of gate 9: 42
+04-098: Performing (75 + 58) mod prime = 32
+04-098: [WIRE]: 10, 1
+04-099: Performing (42 + 32) mod prime = 74
+04-099: Sending final value 74 all parties
+04-099: [WIRE]: 11, 1
+04-100: Final shares [14, 78, 98, 74, 6, 96]
+04-101: recomb vector = [3, -3, 1]
+04-102: Final result -> Ours: 7, actual 7
+05-000: Called bgw protocol!
+05-000: Polynomial Coeffs: [1, 18, 58]
+05-000: Private value: 1, party no 5
+05-000: degree 2
+05-001: evals = [1, 18, 58]
+05-002: poly res = 77 -> 77
+05-003: Sending share 77 for wire 5 to party_no 1
+05-004: evals = [1, 36, 232]
+05-005: poly res = 269 -> 67
+05-006: Sending share 67 for wire 5 to party_no 2
+05-007: evals = [1, 54, 522]
+05-008: poly res = 577 -> 72
+05-009: Sending share 72 for wire 5 to party_no 3
+05-010: evals = [1, 72, 928]
+05-011: poly res = 1001 -> 92
+05-012: Sending share 92 for wire 5 to party_no 4
+05-013: evals = [1, 90, 1450]
+05-014: poly res = 1541 -> 26
+05-015: Sending share 26 for wire 5 to party_no 5
+05-016: evals = [1, 108, 2088]
+05-017: poly res = 2197 -> 76
+05-018: Sending share 76 for wire 5 to party_no 6
+05-019: Sent shares [77, 67, 72, 92, 26, 76]
+05-020: [WIRE]: 1, 0
+05-021: [WIRE]: 2, 0
+05-022: [WIRE]: 3, 0
+05-023: [WIRE]: 4, 0
+05-024: [WIRE]: 5, 0
+05-025: [WIRE]: 6, 0
+05-026: [WIRE]: 7, 2
+05-027: Performing (45 * 65) mod prime = 97
+05-027: degree 2
+05-028: Degree reduction coeffs [97, 58, 98]
+05-029: evals = [97, 58, 98]
+05-030: poly res = 253 -> 51
+05-031: Sending share 51 for wire 7 to party_no 1
+05-032: evals = [97, 116, 392]
+05-033: poly res = 605 -> 100
+05-034: Sending share 100 for wire 7 to party_no 2
+05-035: evals = [97, 174, 882]
+05-036: poly res = 1153 -> 42
+05-037: Sending share 42 for wire 7 to party_no 3
+05-038: evals = [97, 232, 1568]
+05-039: poly res = 1897 -> 79
+05-040: Sending share 79 for wire 7 to party_no 4
+05-041: evals = [97, 290, 2450]
+05-042: poly res = 2837 -> 9
+05-043: Sending share 9 for wire 7 to party_no 5
+05-044: evals = [97, 348, 3528]
+05-045: poly res = 3973 -> 34
+05-046: Sending share 34 for wire 7 to party_no 6
+05-047: Degree reduction sent shares [51, 100, 42, 79, 9, 34]
+05-048: recomb vector = [5, -10, 10, -5, 1]
+05-049: Recombined output of gate 7: 5
+05-050: [WIRE]: 8, 2
+05-051: Performing (46 * 56) mod prime = 51
+05-051: degree 2
+05-052: Degree reduction coeffs [51, 22, 90]
+05-053: evals = [51, 22, 90]
+05-054: poly res = 163 -> 62
+05-055: Sending share 62 for wire 8 to party_no 1
+05-056: evals = [51, 44, 360]
+05-057: poly res = 455 -> 51
+05-058: Sending share 51 for wire 8 to party_no 2
+05-059: evals = [51, 66, 810]
+05-060: poly res = 927 -> 18
+05-061: Sending share 18 for wire 8 to party_no 3
+05-062: evals = [51, 88, 1440]
+05-063: poly res = 1579 -> 64
+05-064: Sending share 64 for wire 8 to party_no 4
+05-065: evals = [51, 110, 2250]
+05-066: poly res = 2411 -> 88
+05-067: Sending share 88 for wire 8 to party_no 5
+05-068: evals = [51, 132, 3240]
+05-069: poly res = 3423 -> 90
+05-070: Sending share 90 for wire 8 to party_no 6
+05-071: Degree reduction sent shares [62, 51, 18, 64, 88, 90]
+05-072: recomb vector = [5, -10, 10, -5, 1]
+05-073: Recombined output of gate 8: 82
+05-074: [WIRE]: 9, 2
+05-075: Performing (26 * 96) mod prime = 72
+05-075: degree 2
+05-076: Degree reduction coeffs [72, 50, 93]
+05-077: evals = [72, 50, 93]
+05-078: poly res = 215 -> 13
+05-079: Sending share 13 for wire 9 to party_no 1
+05-080: evals = [72, 100, 372]
+05-081: poly res = 544 -> 39
+05-082: Sending share 39 for wire 9 to party_no 2
+05-083: evals = [72, 150, 837]
+05-084: poly res = 1059 -> 49
+05-085: Sending share 49 for wire 9 to party_no 3
+05-086: evals = [72, 200, 1488]
+05-087: poly res = 1760 -> 43
+05-088: Sending share 43 for wire 9 to party_no 4
+05-089: evals = [72, 250, 2325]
+05-090: poly res = 2647 -> 21
+05-091: Sending share 21 for wire 9 to party_no 5
+05-092: evals = [72, 300, 3348]
+05-093: poly res = 3720 -> 84
+05-094: Sending share 84 for wire 9 to party_no 6
+05-095: Degree reduction sent shares [13, 39, 49, 43, 21, 84]
+05-096: recomb vector = [5, -10, 10, -5, 1]
+05-097: Recombined output of gate 9: 20
+05-098: Performing (5 + 82) mod prime = 87
+05-098: [WIRE]: 10, 1
+05-099: Performing (20 + 87) mod prime = 6
+05-099: Sending final value 6 all parties
+05-099: [WIRE]: 11, 1
+05-100: Final shares [14, 78, 98, 74, 6, 96]
+05-101: recomb vector = [3, -3, 1]
+05-102: Final result -> Ours: 7, actual 7
+06-000: Called bgw protocol!
+06-000: Polynomial Coeffs: [71, 18, 58]
+06-000: Private value: 71, party no 6
+06-000: degree 2
+06-001: evals = [71, 18, 58]
+06-002: poly res = 147 -> 46
+06-003: Sending share 46 for wire 6 to party_no 1
+06-004: evals = [71, 36, 232]
+06-005: poly res = 339 -> 36
+06-006: Sending share 36 for wire 6 to party_no 2
+06-007: evals = [71, 54, 522]
+06-008: poly res = 647 -> 41
+06-009: Sending share 41 for wire 6 to party_no 3
+06-010: evals = [71, 72, 928]
+06-011: poly res = 1071 -> 61
+06-012: Sending share 61 for wire 6 to party_no 4
+06-013: evals = [71, 90, 1450]
+06-014: poly res = 1611 -> 96
+06-015: Sending share 96 for wire 6 to party_no 5
+06-016: evals = [71, 108, 2088]
+06-017: poly res = 2267 -> 45
+06-018: Sending share 45 for wire 6 to party_no 6
+06-019: Sent shares [46, 36, 41, 61, 96, 45]
+06-020: [WIRE]: 1, 0
+06-021: [WIRE]: 2, 0
+06-022: [WIRE]: 3, 0
+06-023: [WIRE]: 4, 0
+06-024: [WIRE]: 5, 0
+06-025: [WIRE]: 6, 0
+06-026: [WIRE]: 7, 2
+06-027: Performing (95 * 14) mod prime = 17
+06-027: degree 2
+06-028: Degree reduction coeffs [17, 58, 98]
+06-029: evals = [17, 58, 98]
+06-030: poly res = 173 -> 72
+06-031: Sending share 72 for wire 7 to party_no 1
+06-032: evals = [17, 116, 392]
+06-033: poly res = 525 -> 20
+06-034: Sending share 20 for wire 7 to party_no 2
+06-035: evals = [17, 174, 882]
+06-036: poly res = 1073 -> 63
+06-037: Sending share 63 for wire 7 to party_no 3
+06-038: evals = [17, 232, 1568]
+06-039: poly res = 1817 -> 100
+06-040: Sending share 100 for wire 7 to party_no 4
+06-041: evals = [17, 290, 2450]
+06-042: poly res = 2757 -> 30
+06-043: Sending share 30 for wire 7 to party_no 5
+06-044: evals = [17, 348, 3528]
+06-045: poly res = 3893 -> 55
+06-046: Sending share 55 for wire 7 to party_no 6
+06-047: Degree reduction sent shares [72, 20, 63, 100, 30, 55]
+06-048: recomb vector = [5, -10, 10, -5, 1]
+06-049: Recombined output of gate 7: 30
+06-050: [WIRE]: 8, 2
+06-051: Performing (96 * 5) mod prime = 76
+06-051: degree 2
+06-052: Degree reduction coeffs [76, 22, 90]
+06-053: evals = [76, 22, 90]
+06-054: poly res = 188 -> 87
+06-055: Sending share 87 for wire 8 to party_no 1
+06-056: evals = [76, 44, 360]
+06-057: poly res = 480 -> 76
+06-058: Sending share 76 for wire 8 to party_no 2
+06-059: evals = [76, 66, 810]
+06-060: poly res = 952 -> 43
+06-061: Sending share 43 for wire 8 to party_no 3
+06-062: evals = [76, 88, 1440]
+06-063: poly res = 1604 -> 89
+06-064: Sending share 89 for wire 8 to party_no 4
+06-065: evals = [76, 110, 2250]
+06-066: poly res = 2436 -> 12
+06-067: Sending share 12 for wire 8 to party_no 5
+06-068: evals = [76, 132, 3240]
+06-069: poly res = 3448 -> 14
+06-070: Sending share 14 for wire 8 to party_no 6
+06-071: Degree reduction sent shares [87, 76, 43, 89, 12, 14]
+06-072: recomb vector = [5, -10, 10, -5, 1]
+06-073: Recombined output of gate 8: 84
+06-074: [WIRE]: 9, 2
+06-075: Performing (76 * 45) mod prime = 87
+06-075: degree 2
+06-076: Degree reduction coeffs [87, 50, 93]
+06-077: evals = [87, 50, 93]
+06-078: poly res = 230 -> 28
+06-079: Sending share 28 for wire 9 to party_no 1
+06-080: evals = [87, 100, 372]
+06-081: poly res = 559 -> 54
+06-082: Sending share 54 for wire 9 to party_no 2
+06-083: evals = [87, 150, 837]
+06-084: poly res = 1074 -> 64
+06-085: Sending share 64 for wire 9 to party_no 3
+06-086: evals = [87, 200, 1488]
+06-087: poly res = 1775 -> 58
+06-088: Sending share 58 for wire 9 to party_no 4
+06-089: evals = [87, 250, 2325]
+06-090: poly res = 2662 -> 36
+06-091: Sending share 36 for wire 9 to party_no 5
+06-092: evals = [87, 300, 3348]
+06-093: poly res = 3735 -> 99
+06-094: Sending share 99 for wire 9 to party_no 6
+06-095: Degree reduction sent shares [28, 54, 64, 58, 36, 99]
+06-096: recomb vector = [5, -10, 10, -5, 1]
+06-097: Recombined output of gate 9: 83
+06-098: Performing (30 + 84) mod prime = 13
+06-098: [WIRE]: 10, 1
+06-099: Performing (83 + 13) mod prime = 96
+06-099: Sending final value 96 all parties
+06-099: [WIRE]: 11, 1
+06-100: Final shares [14, 78, 98, 74, 6, 96]
+06-101: recomb vector = [3, -3, 1]
+06-102: Final result -> Ours: 7, actual 7
+CIRCUIT 1

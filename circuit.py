@@ -2,7 +2,7 @@
 # naranker dulay, dept of computing, imperial college, october 2020
 
 # Circuit below to evalute
-CIRCUIT = 70
+CIRCUIT = 1
 
 # Gate types
 INP, ADD, MUL  = (0,1,2)
@@ -15,7 +15,7 @@ if CIRCUIT == 1: 	# example in Smart
   # ___________________________________________________________________________
   # polynomial prime - further primes at bottom of file
   PRIME  = 101
-  PRIME = 35742549198872617291353508656626642567  # Large Bell prime
+  # PRIME = 35742549198872617291353508656626642567  # Large Bell prime
   # degree of polynominal - T in slides
   DEGREE = 2
 

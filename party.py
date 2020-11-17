@@ -22,7 +22,7 @@ def poly_prime(coeffs: object, x: object) -> object:
   ''' Retuns P(x) mod PRIME '''
   evals = []
   for deg, co in enumerate(coeffs, start=0):
-    log.debug("deg: %d, co: %d" % (deg,co))
+    # log.debug("deg: %d, co: %d" % (deg,co))
     # res += co*(x**deg)
     evals.append(co*(x**deg))
   res = sum(evals)
@@ -74,14 +74,17 @@ def bgw_protocol(party_no, priv_value, network):
   #     gate_inputs[]
   # Create shares
   coeffs = gen_coeffs(priv_value)
-  log.debug("Coeffs: %s" % coeffs)
+  log.debug("Polynomial Coeffs: %s" % coeffs)
 
   # Send shares
+  sent_shares = []
   for party in ALL_PARTIES:
     share = poly_prime(coeffs, party)
+    sent_shares.append(share)
     wire = party_no
-    log.write("Sending share %d for wire %d to party_no %d" % (share, wire, party))
+    log.debug("Sending share %d for wire %d to party_no %d" % (share, wire, party))
     network.send_share(share, wire, party)
+  log.write("Sent shares %s" % sent_shares)
 
   # For each wire (output from the gate), wait for shares
   for cur_wire in GATES:
@@ -90,9 +93,9 @@ def bgw_protocol(party_no, priv_value, network):
     log.write("[WIRE]: %d, %s" % (cur_wire, g_type))
 
     if (g_type == circuit.INP):
-      log.debug("Input gate, Receiving shares.")
+      # log.debug("Input gate, Receiving shares.")
       share = network.receive_share(cur_wire, cur_wire)
-      log.debug("Received share %d" % share)
+      # log.debug("Received share %d" % share)
       # Create and send share
       if input_no == 1:
         gate_inputs[out_wire] = [share]
@@ -121,13 +124,17 @@ def bgw_protocol(party_no, priv_value, network):
 
       # first, create a random polynomial of the original degree. Constant = res.
       deg_red_coeffs = gen_coeffs(res)
+      log.write("Degree reduction coeffs %s" % deg_red_coeffs)
 
       received_shares = []
+      sent_shares = []
       for party in ALL_PARTIES:
         share = poly_prime(deg_red_coeffs, party)
+        sent_shares.append(share)
         network.send_share(share, cur_wire, party)
-        log.write("Sending share %d for wire %d to party_no %d" % (share, cur_wire, party))
+        log.debug("Sending share %d for wire %d to party_no %d" % (share, cur_wire, party))
         received_shares.append(network.receive_share(party, cur_wire))
+      log.write("Degree reduction sent shares %s" % sent_shares)
       res = recombine(received_shares, final=False)
       log.write("Recombined output of gate %d: %d" % (cur_wire, res))
       if input_no == 1:
@@ -150,4 +157,5 @@ def bgw_protocol(party_no, priv_value, network):
     # Get share from parties
     final_values.append(network.receive_share(party, final_wire))
 
+  log.write("Final shares %s" % final_values)
   final_result = recombine(final_values, final=True)
