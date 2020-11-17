@@ -2,7 +2,7 @@
 # naranker dulay, dept of computing, imperial college, october 2020
 
 # Circuit below to evalute
-CIRCUIT = 4
+CIRCUIT = 1
 
 # Gate types
 INP, ADD, MUL = (0,1,2)
@@ -117,7 +117,26 @@ elif CIRCUIT == 4:	# add your circuit(s) here
     5:  (ADD, 6,1), #5
   }
 
-# TODO: try with a circuit where the last gate is a MUL
+elif CIRCUIT == 5:  # add your circuit(s) here
+  # polynomial prime - further primes at bottom of file
+  PRIME = 101
+  # degree of polynominal - T in slides
+  DEGREE = 1
+
+  PRIVATE_VALUES = {1: 6, 2: 7, 3: 8, 4: 9}
+
+
+  def function(x):  # function being evaluated by parties
+    return (x[1] * x[2] * x[3]) % PRIME
+
+
+  GATES = {
+    1: (INP, 4, 1),  # 1
+    2: (INP, 4, 2),  # 2
+    3: (INP, 5, 1),  # 3
+    4: (MUL, 5, 2),  # 6
+    5: (MUL, 6, 1),  # 7
+  }
 
 # ___________________________________________________________________________
 

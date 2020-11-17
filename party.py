@@ -1,5 +1,5 @@
 # Tharusha Amarasinghe TA2617
-# Kunal Katarya KK__17
+# Kunal Katarya KK3415
 
 
 from circuit import ALL_PARTIES, DEGREE, N_GATES, PRIVATE_VALUES, GATES
@@ -18,7 +18,7 @@ def gen_coeffs(priv_value):
   # log.debug(coeffs)
   return coeffs
 
-def poly_prime(coeffs, x):
+def poly_prime(coeffs: object, x: object) -> object:
   ''' Retuns P(x) mod PRIME '''
   evals = []
   for deg, co in enumerate(coeffs, start=0):
@@ -30,40 +30,13 @@ def poly_prime(coeffs, x):
   log.write("poly res = %d -> %d" % (res,  modprime.mod(res)))
   return modprime.mod(res)
 
-def recombine(final_values):
-  # coords = {}
-  # log.debug("Recombining final values %s" % final_values)
-  # for x,y in enumerate(final_values, start=1):
-  #   log.write("x: %d, y: %d" % (x,y))
-  #   coords[x] = y
-
-  # # no_of_coords = DEGREE + 1
-  # delta_zeros = {}
-  # # Compute the function on each set
-  # for x,y in coords.items():
-    
-  #   num = 1
-  #   dom = 1
-  #   for i in range(DEGREE):
-  #     # Pick coordinates that arent the current one
-  #     num =  num * (x+1+i)
-  #     dom =  dom * 2
-  #   delta_zeros[x] = (num/dom)
-
-  #   if len(delta_zeros) == DEGREE + 1:
-  #     break
-  
-  
-  # res = 0
-  # for x in delta_zeros:
-  #   log.write("delta=%d * y=%d = %d" % (delta_zeros[x],coords[x],delta_zeros[x] * coords[x]))
-  #   res += delta_zeros[x] * coords[x]
-
+def recombine(received_values, final=False):
   # Make recomb vector, using formula from bottom of slide 26
+  upper_bound = DEGREE+2 if final else 2*DEGREE+2
   recomb = []
-  for i in range (1, DEGREE+2):
+  for i in range(1, upper_bound):
     prod = 1
-    for j in range(1,DEGREE+2):
+    for j in range(1, upper_bound):
       if j != i:
         prod = prod * (j/(j-i))
     recomb.append(prod)
@@ -72,10 +45,11 @@ def recombine(final_values):
   res = 0
   # Compute result using recombination vector and final values
   for i, vec in enumerate(recomb, start=0):
-    res += vec*final_values[i]
+    res += vec*received_values[i]
 
-  log.write("Final result -> Ours: %d, actual %d" % (modprime.mod(res), circuit.function(circuit.PRIVATE_VALUES)))
-  
+  if final: log.write("Final result -> Ours: %d, actual %d" % (modprime.mod(res), circuit.function(circuit.PRIVATE_VALUES)))
+
+  return modprime.mod(res)
 
 
 
@@ -91,7 +65,7 @@ def bgw_protocol(party_no, priv_value, network):
   # inp_no is the input number for that gate it will be used for
   gate_inputs = {}
 
-  
+
 
   # for gate_no in GATES:
   #   g_type,out_gate,inputs = GATES[gate_no]
@@ -107,7 +81,7 @@ def bgw_protocol(party_no, priv_value, network):
     wire = party_no
     log.write("Sending share %d for wire %d to party_no %d" % (share, wire, party))
     network.send_share(share, wire, party)
-    
+
   # For each wire (output from the gate), wait for shares
   for cur_wire in GATES:
 
@@ -115,13 +89,15 @@ def bgw_protocol(party_no, priv_value, network):
     log.write("[WIRE]: %d, %s" % (cur_wire, g_type))
 
     if (g_type == circuit.INP):
+      log.debug("Input gate, Receiving shares.")
       share = network.receive_share(cur_wire, cur_wire)
+      log.debug("Received share %d" % share)
       # Create and send share
       if input_no == 1:
         gate_inputs[out_wire] = [share]
       else:
         gate_inputs[out_wire].append(share)
-          
+
 
     elif (g_type == circuit.ADD):
       if (len(gate_inputs[cur_wire]) != 2):
@@ -133,23 +109,38 @@ def bgw_protocol(party_no, priv_value, network):
         gate_inputs[out_wire] = [res]
       else:
         gate_inputs[out_wire].append(res)
-    
+
 
     elif (g_type == circuit.MUL):
       if (len(gate_inputs[cur_wire]) != 2):
         log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[cur_wire]))
       op1,op2 = gate_inputs[cur_wire]
-      log.debug("Performing (%d & %d) mod prime = %d" % (op1, op2, res))
       res = modprime.mul(op1,op2)
-      # TODO need to do degree reduction
+      log.write("Performing (%d * %d) mod prime = %d" % (op1, op2, res))
+
+      # first, create a random polynomial of the original degree. Constant = res.
+      deg_red_coeffs = gen_coeffs(res)
+
+      received_shares = []
+      for party in ALL_PARTIES:
+        share = poly_prime(deg_red_coeffs, party)
+        network.send_share(share, cur_wire, party)
+        log.write("Sending share %d for wire %d to party_no %d" % (share, cur_wire, party))
+        received_shares.append(network.receive_share(party, cur_wire))
+      res = recombine(received_shares, final=False)
+      log.write("Recombined output of gate %d: %d" % (cur_wire, res))
+      if input_no == 1:
+        gate_inputs[out_wire] = [res]
+      else:
+        gate_inputs[out_wire].append(res)
 
   final_wire = N_GATES+1
-  
+
   # log.debug("final indx = %d" % final_wire)
   if len(gate_inputs[final_wire]) != 1:
     log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[final_wire]))
   log.debug("Sending final value %d all parties" % (gate_inputs[final_wire][0]))
- 
+
   final_values = []
   # Send shares of final value
   for party in ALL_PARTIES:
@@ -158,5 +149,4 @@ def bgw_protocol(party_no, priv_value, network):
     # Get share from parties
     final_values.append(network.receive_share(party, final_wire))
 
-  recombine(final_values)
-  
+  final_result = recombine(final_values, final=True)
