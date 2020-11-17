@@ -138,6 +138,47 @@ elif CIRCUIT == 5:  # add your circuit(s) here
     5: (MUL, 6, 1),  # 7
   }
 
+elif CIRCUIT == 420:  # add your circuit(s) here
+  # polynomial prime - further primes at bottom of file
+  PRIME = 101
+  # degree of polynominal - T in slides
+  DEGREE = 1
+
+  PRIVATE_VALUES = {1: 1, 2: 2, 3: 3, 4: 6, 5: 7, 6: 10}
+
+
+  def function(x):  # function being evaluated by parties
+    return (x[1] + x[2]*x[3])/(x[4]*(x[5]/x[6]))
+
+  GATES = {
+    1: (INP, 4, 1),  # 1
+    2: (INP, 4, 2),  # 2
+    3: (INP, 5, 1),  # 3
+    4: (MUL, 5, 2),  # 6
+    5: (MUL, 6, 1),  # 7
+  }
+
+elif CIRCUIT == 69:  # add your circuit(s) here
+  # polynomial prime - further primes at bottom of file
+  PRIME = 101
+  # degree of polynominal - T in slides
+  DEGREE = 1
+
+  PRIVATE_VALUES = {1:1, 2: 2, 3: 2, 4: 3}
+
+
+  def function(x):  # function being evaluated by parties
+    return (x[4] - x[2]) / (x[3]-x[1])
+
+  GATES = {
+    1: (INP, 5, 1),  # 1
+    2: (INP, 6, 1),  # 2
+    3: (INP, 5, 2),  # 3
+    4: (INP, 6, 2),
+    5: (SUB, 7, 1),
+    6: (SUB, 7, 2),
+    7: (DIV, 8, 1),
+  }
 # ___________________________________________________________________________
 
 # true function result - used to check result from MPC circuit
