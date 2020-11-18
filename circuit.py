@@ -2,13 +2,13 @@
 # naranker dulay, dept of computing, imperial college, october 2020
 
 # Circuit below to evalute
-CIRCUIT = 1
+CIRCUIT = 420
 
 # Gate types
 INP, ADD, MUL  = (0,1,2)
 
-# Define MPC Function as an addition/multiplication circuit. INPut gates 
-# precede ADD/MUL gates. ADD/MUL gates are defined in evaluation order. 
+# Define MPC Function as an addition/multiplication circuit. INPut gates
+# precede ADD/MUL gates. ADD/MUL gates are defined in evaluation order.
 # By convention the final wire is considerd the circuit's output wire.
 
 if CIRCUIT == 1: 	# example in Smart
@@ -99,26 +99,7 @@ elif CIRCUIT == 3:	# add your circuit(s) here
     11: (ADD, 12,1),  	# (12,1) is circuit output wire #11
   }
 
-elif CIRCUIT == 4:	# add your circuit(s) here
-  # polynomial prime - further primes at bottom of file
-  PRIME  = 101
-  # degree of polynominal - T in slides
-  DEGREE = 1
-
-  PRIVATE_VALUES = {1:20, 2:40, 3:21}
-
-  def function(x):	# function being evaluated by parties
-    return (x[1] + x[2] + x[3]) % PRIME
-
-  GATES = {
-    1:  (INP, 4,1), #1
-    2:  (INP, 4,2), #2
-    3:  (INP, 5,1), #3
-    4:  (ADD, 5,2), #4
-    5:  (ADD, 6,1), #5
-  }
-
-elif CIRCUIT == 5:  # add your circuit(s) here
+elif CIRCUIT == 4:  # add your circuit(s) here
   # polynomial prime - further primes at bottom of file
   PRIME = 101
   # degree of polynominal - T in slides
@@ -126,10 +107,8 @@ elif CIRCUIT == 5:  # add your circuit(s) here
 
   PRIVATE_VALUES = {1: 6, 2: 7, 3: 8, 4: 9}
 
-
   def function(x):  # function being evaluated by parties
     return (x[1] * x[2] * x[3]) % PRIME
-
 
   GATES = {
     1: (INP, 4, 1),  # 1
@@ -141,54 +120,11 @@ elif CIRCUIT == 5:  # add your circuit(s) here
 
 elif CIRCUIT == 420:  # add your circuit(s) here
   # polynomial prime - further primes at bottom of file
-  PRIME = 101
-  # degree of polynominal - T in slides
-  DEGREE = 1
-
-  PRIVATE_VALUES = {1: 1, 2: 2, 3: 3, 4: 6, 5: 7, 6: 10}
-
-
-  def function(x):  # function being evaluated by parties
-    return (x[1] + x[2]*x[3])/(x[4]*(x[5]/x[6]))
-
-  GATES = {
-    1: (INP, 4, 1),  # 1
-    2: (INP, 4, 2),  # 2
-    3: (INP, 5, 1),  # 3
-    4: (MUL, 5, 2),  # 6
-    5: (MUL, 6, 1),  # 7
-  }
-
-elif CIRCUIT == 69:  # add your circuit(s) here
-  # polynomial prime - further primes at bottom of file
-  PRIME = 101
-  # degree of polynominal - T in slides
-  DEGREE = 1
-
-  PRIVATE_VALUES = {1:1, 2: 2, 3: 2, 4: 3}
-
-
-  def function(x):  # function being evaluated by parties
-    return (x[4] - x[2]) / (x[3]-x[1])
-
-  GATES = {
-    1: (INP, 5, 1),  # 1
-    2: (INP, 6, 1),  # 2
-    3: (INP, 5, 2),  # 3
-    4: (INP, 6, 2),
-    5: (SUB, 7, 1),
-    6: (SUB, 7, 2),
-    7: (DIV, 8, 1),
-  }
-
-elif CIRCUIT == 70:  # add your circuit(s) here
-  # polynomial prime - further primes at bottom of file
   PRIME = 1000003
   # degree of polynominal - T in slides
   DEGREE = 4
 
   PRIVATE_VALUES = {k: (10*k) for k in range(1, 11)}
-
 
   def function(x):  # function being evaluated by parties
     return (x[1] + x[2]*(x[3] + x[4]*(x[5] + x[6]*(x[7] + x[8]*(x[9] + x[10]))))) % PRIME
@@ -213,7 +149,6 @@ elif CIRCUIT == 70:  # add your circuit(s) here
     17: (ADD, 18, 2),
     18: (MUL, 19, 2),
     19: (ADD, 20, 1),
-
   }
 # ___________________________________________________________________________
 
@@ -228,14 +163,12 @@ ALL_DEGREES = range(1, DEGREE+1)
 assert PRIME > N_PARTIES, "Prime > N failed :-("
 assert 2*DEGREE < N_PARTIES, "2T < N failed :-("
 
-# Various Primes 
+# Various Primes
 # PRIME = 11
 # PRIME = 101
 # PRIME = 1_009
 # PRIME = 10_007
 # PRIME = 100_003
-# PRIME = 1_000_003 
+# PRIME = 1_000_003
 # PRIME = 1_000_000_007
 # PRIME = 35742549198872617291353508656626642567  # Large Bell prime
-
-
