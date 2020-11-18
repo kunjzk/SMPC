@@ -44,41 +44,6 @@ def interpolate(received_values, final=False):
      circuit.function(circuit.PRIVATE_VALUES)))
   return modprime.mod(res)
 
-def add_gate(gate_inputs, curr_gate, next_gate, input_no):
-    '''Add two inputs, store result'''
-    if (len(gate_inputs[curr_gate]) != 2):
-      log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[curr_gate]))
-    op1,op2 = gate_inputs[curr_gate]
-    res = modprime.add(op1,op2)
-    log.debug("Performing (%d + %d) mod prime = %d" % (op1, op2, res))
-    if input_no == 1:
-      gate_inputs[next_gate] = [res]
-    else:
-      gate_inputs[next_gate].append(res)
-
-def mul_gate(gate_inputs, curr_gate, next_gate, input_no, network):
-    '''
-    Multiply two inputs, perform secret sharing and interpolation, store result
-    '''
-    if (len(gate_inputs[curr_gate]) != 2):
-      log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[curr_gate]))
-    op1,op2 = gate_inputs[curr_gate]
-    needs_reduction_res = modprime.mul(op1,op2)
-    log.write("Performing (%d * %d) mod prime = %d" % (op1, op2, needs_reduction_res))
-    res = degree_reduction(needs_reduction_res, curr_gate, network)
-    if input_no == 1:
-      gate_inputs[next_gate] = [res]
-    else:
-      gate_inputs[next_gate].append(res)
-
-def input_gate(gate_inputs, curr_gate, next_gate, input_no, network):
-    '''Receive a share for the current gate from the corresponding party'''
-    share = network.receive_share(curr_gate, curr_gate)
-    if input_no == 1:
-      gate_inputs[next_gate] = [share]
-    else:
-      gate_inputs[next_gate].append(share)
-
 def output_gate(gate_inputs, final_gate, network):
     if len(gate_inputs[final_gate]) != 1:
       log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[final_gate]))
@@ -120,6 +85,41 @@ def degree_reduction(needs_reduction_res, curr_gate, network):
     res = interpolate(received_shares, final=False)
     log.write("interpolated output of gate %d: %d" % (curr_gate, res))
     return res
+
+def add_gate(gate_inputs, curr_gate, next_gate, input_no):
+    '''Add two inputs, store result'''
+    if (len(gate_inputs[curr_gate]) != 2):
+      log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[curr_gate]))
+    op1,op2 = gate_inputs[curr_gate]
+    res = modprime.add(op1,op2)
+    log.debug("Performing (%d + %d) mod prime = %d" % (op1, op2, res))
+    if input_no == 1:
+      gate_inputs[next_gate] = [res]
+    else:
+      gate_inputs[next_gate].append(res)
+
+def mul_gate(gate_inputs, curr_gate, next_gate, input_no, network):
+    '''
+    Multiply two inputs, perform secret sharing and interpolation, store result
+    '''
+    if (len(gate_inputs[curr_gate]) != 2):
+      log.write("[WARNING] Incorrect number of inputs: %d" % len(gate_inputs[curr_gate]))
+    op1,op2 = gate_inputs[curr_gate]
+    needs_reduction_res = modprime.mul(op1,op2)
+    log.write("Performing (%d * %d) mod prime = %d" % (op1, op2, needs_reduction_res))
+    res = degree_reduction(needs_reduction_res, curr_gate, network)
+    if input_no == 1:
+      gate_inputs[next_gate] = [res]
+    else:
+      gate_inputs[next_gate].append(res)
+
+def input_gate(gate_inputs, curr_gate, next_gate, input_no, network):
+    '''Receive a share for the current gate from the corresponding party'''
+    share = network.receive_share(curr_gate, curr_gate)
+    if input_no == 1:
+      gate_inputs[next_gate] = [share]
+    else:
+      gate_inputs[next_gate].append(share)
 
 def bgw_protocol(party_no, priv_value, network):
   log.debug("Called bgw protocol!")
