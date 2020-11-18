@@ -8,7 +8,6 @@ import random    # randint
 
 from circuit import PRIME
 
-# random.seed(100) # To collect data, REMOVE BEFORE SUBMISSION
 
 # ---------------------------------------------------------------------------
 

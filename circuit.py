@@ -2,7 +2,7 @@
 # naranker dulay, dept of computing, imperial college, october 2020
 
 # Circuit below to evalute
-CIRCUIT = 420
+CIRCUIT = 1
 
 # Gate types
 INP, ADD, MUL  = (0,1,2)
@@ -41,9 +41,9 @@ if CIRCUIT == 1: 	# example in Smart
 elif CIRCUIT == 2:	# factorial tree for 2^n parties
   # ___________________________________________________________________________
   # polynomial prime - further primes at bottom of file
-  # PRIME = 100003
+  PRIME = 100003
   # PRIME = 1000000007
-  PRIME = 35742549198872617291353508656626642567  # Large Bell prime
+  # PRIME = 35742549198872617291353508656626642567  # Large Bell prime
 
   # degree of polynominal - T in slides
   DEGREE = 2
@@ -120,7 +120,7 @@ elif CIRCUIT == 4:  # add your circuit(s) here
 
 elif CIRCUIT == 420:  # add your circuit(s) here
   # polynomial prime - further primes at bottom of file
-  PRIME = 1000003
+  PRIME = 1000000007
   # degree of polynominal - T in slides
   DEGREE = 4
 
