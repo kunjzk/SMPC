@@ -1,3 +1,5 @@
+# Tharusha Amarasinghe TA2617
+# Kunal Katarya KK3415
 # secure multi-party computation, semi-honest case, distributed, v1
 # naranker dulay, dept of computing, imperial college, october 2020
 
@@ -130,9 +132,9 @@ elif CIRCUIT == 420:  # add your circuit(s) here
     return (x[1] + x[2]*(x[3] + x[4]*(x[5] + x[6]*(x[7] + x[8]*(x[9] + x[10]))))) % PRIME
 
   GATES = {
-    1: (INP, 19, 1),  # 1
-    2: (INP, 18, 1),  # 2
-    3: (INP, 17, 1),  # 3
+    1: (INP, 19, 1),
+    2: (INP, 18, 1),
+    3: (INP, 17, 1),
     4: (INP, 16, 1),
     5: (INP, 15, 1),
     6: (INP, 14, 1),
