@@ -43,6 +43,11 @@ def create_share(coeffs: object, x: object) -> object:
 def interpolate(received_values, final=False):
   '''
   Perform lagrange interpolation to recover secret value from received_values.
+
+  final == True --> interpolate assuming polynomial is of degree T.
+
+  final == False --> interpolate assuming polynomial is of degree 2T, and needs
+  reduction.
   '''
   upper_bound = DEGREE+2 if final else 2*DEGREE+2
   recomb = []
