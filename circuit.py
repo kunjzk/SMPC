@@ -126,7 +126,7 @@ elif CIRCUIT == 420:  # add your circuit(s) here
   # degree of polynominal - T in slides
   DEGREE = 4
 
-  PRIVATE_VALUES = {k: (10*k) for k in range(1, 11)}
+  PRIVATE_VALUES = {k: (7*k) for k in range(1, 11)}
 
   def function(x):  # function being evaluated by parties
     return (x[1] + x[2]*(x[3] + x[4]*(x[5] + x[6]*(x[7] + x[8]*(x[9] + x[10]))))) % PRIME
