@@ -76,51 +76,7 @@ elif CIRCUIT == 2:	# factorial tree for 2^n parties
   tree(1, INPUTS)
 
 # ___________________________________________________________________________
-elif CIRCUIT == 3:	# add your circuit(s) here
-  # polynomial prime - further primes at bottom of file
-  PRIME  = 101
-  # degree of polynominal - T in slides
-  DEGREE = 2
-
-  PRIVATE_VALUES = {1:20, 2:40, 3:21, 4:31, 5:1, 6:71}
-
-  def function(x):	# function being evaluated by parties
-    return (x[1] + x[2] + x[3] + x[4] + x[5] + x[6]) % PRIME
-
-  GATES = {
-    1:  (INP, 7,1), #1
-    2:  (INP, 7,2), #2
-    3:  (INP, 8,1), #3
-    4:  (INP, 8,2), #4
-    5:  (INP, 9,1), #5
-    6:  (INP, 9,2), #6
-    7:  (ADD, 10,1), #7
-    8:  (ADD, 10,2), #8
-    9:  (ADD, 11,1), #9
-    10: (ADD, 11,2), #10
-    11: (ADD, 12,1),  	# (12,1) is circuit output wire #11
-  }
-
-elif CIRCUIT == 4:  # add your circuit(s) here
-  # polynomial prime - further primes at bottom of file
-  PRIME = 101
-  # degree of polynominal - T in slides
-  DEGREE = 1
-
-  PRIVATE_VALUES = {1: 6, 2: 7, 3: 8, 4: 9}
-
-  def function(x):  # function being evaluated by parties
-    return (x[1] * x[2] * x[3]) % PRIME
-
-  GATES = {
-    1: (INP, 4, 1),  # 1
-    2: (INP, 4, 2),  # 2
-    3: (INP, 5, 1),  # 3
-    4: (MUL, 5, 2),  # 6
-    5: (MUL, 6, 1),  # 7
-  }
-
-elif CIRCUIT == 420:  # add your circuit(s) here
+elif CIRCUIT == 420:
   # polynomial prime - further primes at bottom of file
   PRIME = 1000000007
   # degree of polynominal - T in slides
